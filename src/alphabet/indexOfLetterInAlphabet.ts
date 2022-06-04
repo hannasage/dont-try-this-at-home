@@ -6,7 +6,7 @@ class LetterArray {
     // populateWith() should take a string to use to populate the
     // letters array
     populateWithAlphabet() {
-        // Pass in instaed of hardcode?
+        // Pass in instead of hardcode?
         // No dupes? Or multiple answers?
         const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         const alphabetAsArray: string[] = []
