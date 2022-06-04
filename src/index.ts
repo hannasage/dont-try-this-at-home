@@ -1,6 +1,9 @@
+import indexOfLetterInAlphabet from "./alphabet/indexOfLetterInAlphabet"
 
 interface Settings {}
+// Apps must not expect the CLI to handle any return value
 type Application = () => void
+// Name your apps in the string using dash-case
 type Applications = Map<string, Application>
 
 class Cli {
@@ -12,8 +15,9 @@ class Cli {
         this.settings = settings
     }
 
+    // Should take param of string index for application
     start() {
-        console.log("Started")
+        this.run("letter-index-search")
     }
 
     run(keyOfApp: string) {
@@ -23,14 +27,18 @@ class Cli {
     }
 }
 
-const APPLICATIONS: Applications = new Map([])
+const APPLICATIONS: Applications = new Map([
+    ["letter-index-search", indexOfLetterInAlphabet]
+])
 const SETTINGS: Settings = {}
 function main() {
     const cli = new Cli(
         APPLICATIONS, 
         SETTINGS
     )
+    // Should take user input for which app to start
     cli.start()
 }
 
+// Should make run continuously
 main()
